@@ -8,4 +8,4 @@
 
 ### The Data page was created by importing the cities.csv file into Pandas in the csv_to_html.ipynb Python notebook, reindexing the columns, and saving the resulting DataFrame to html.  I then pasted the resulting html code into the data.html page.
 
-### The final project can be viewed here: https://edspiezio-runyon.github.io/.
+### The final project can be viewed here: https://https://edspiezio-runyon.github.io/Web-Design-Challenge/.
