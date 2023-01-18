@@ -2,12 +2,12 @@ const url = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/
 
 // Deliver test subject ID number
 function init(){
-    let dropdown = d3.select("#selectDataset");
+    let select = d3.select("#selDataset");
     d3.json(url).then((data) => {
-        jsonData = data;
-            let studyID = data.names;
-            studyID.foreach((ID) => {
-                dropdown
+        jsData = data;
+            let subjectID = data.names;
+            subjectID.forEach((ID) => {
+                select
                 .append('option')
                 .text(ID)
                 .property('value', ID);
@@ -17,34 +17,34 @@ function init(){
     buildCharts(940);
 }
 
-function optionChange(newID) {
+function optionChanged(newID) {
     buildMetadata(newID);
     buildCharts(newID);
 };
 
 // Deliver demographic info
-function buildMetadata(ID) [
+function buildMetadata(ID) {
     d3.json(url).then((data) => {
 
         // Define the metadata
         let metadata = data.metadata;
 
         // Filter by the ID
-        let filteredMetadata = metadata.filter(metaObject => metaObject.id == ID)[0-];
+        let filteredMetadata = metadata.filter(metaObj => metaObj.id == ID)[0];
 
         // Create the panel
-        let panel = d3.select("#sample_metadata");
-        panel.append("h6").text("ID: " + filteredMetadata.id);
-        panel.append("h6").text("ETHNICITY: " + filteredMetadata.ethnicity);
-        panel.append("h6").text("GENDER: " + filteredMetadata.gender);
-        panel.append("h6").text("AGE: " + filteredMetadata.age);
-        panel.append("h6").text("LOCATION: " + filteredMetadata.location);
-        panel.append("h6").text("BBTYPE: " + filteredMetadata.bbtype);
-        panel.append("h6").text("WFREQ: " + filteredMetadata.wfreq);
+        let demoPanel = d3.select("#sample-metadata");
+        demoPanel.append("h6").text("ID: " + filteredMetadata.id);
+        demoPanel.append("h6").text("ETHNICITY: " + filteredMetadata.ethnicity);
+        demoPanel.append("h6").text("GENDER: " + filteredMetadata.gender);
+        demoPanel.append("h6").text("AGE: " + filteredMetadata.age);
+        demoPanel.append("h6").text("LOCATION: " + filteredMetadata.location);
+        demoPanel.append("h6").text("BBTYPE: " + filteredMetadata.bbtype);
+        demoPanel.append("h6").text("WFREQ: " + filteredMetadata.wfreq);
 
         // Create the gauge chart
         // Define variable for washing frequency
-        var = washFrequency = filteredMetadata.wfreq;
+        var washFrequency = filteredMetadata.wfreq;
 
         // Create trace
         var gauge_data = [{
@@ -71,12 +71,12 @@ function buildMetadata(ID) [
         var gauge_layout = {
             width: 500,
             height: 400,
-            margin: { t: 0, b: 0 }};
+            margin: { t: 0, b: 0 } };
 
         // Diplay the plot
         Plotly.newPlot('gauge', gauge_data, gauge_layout);
     });
-];
+};
 
 // Create charts
 function buildCharts(ID) {
@@ -86,13 +86,13 @@ function buildCharts(ID) {
         let sample = data.samples
 
         // Filter samples by ID
-        let filteredSample = sample.filter(bacteria => bacteria.id == ID[0];
+        let filteredSample = sample.filter(bacteria => bacteria.id == ID)[0];
             
         // Create bar chart
         // Create variables
         let sample_values = filteredSample.sample_values
-        let sample_ids = filteredSample.sample_ids
-        let sample_labels = filteredSample.sample_label
+        let otu_ids = filteredSample.otu_ids
+        let otu_labels = filteredSample.otu_labels
 
         // Create trace
         var bar_chart_data = [{
@@ -101,10 +101,10 @@ function buildCharts(ID) {
             x: sample_values.slice(0, 10).reverse(),
 
             // Defining the y-values as the sample_ids
-            y: sample_ids.slice(0, 10).map(sample_ids => 'OTU ${sample_ids}').reverse(),
+            y: otu_ids.slice(0, 10).map(otu_ids => `OTU ${otu_ids}`).reverse(),
 
             // Defining text values as sample_labels
-            text: sample_labels.slice(0, 10).reverse(),
+            text: otu_labels.slice(0, 10).reverse(),
             type: 'bar',
             orientation: 'h',
         }]
@@ -122,13 +122,13 @@ function buildCharts(ID) {
         // Create bubble chart
         // Create trace
         var bubble_chart_data = [{
-            x: sample_ids,
+            x: otu_ids,
             y: sample_values,
-            text: sample_labels,
+            text: otu_labels,
             mode: 'markers',
             marker: {
                 // Defining marker colors by sample_ids
-                color: sample_ids,
+                color: otu_ids,
                 size: sample_values,
                 colorscale: 'Electric'
             }
