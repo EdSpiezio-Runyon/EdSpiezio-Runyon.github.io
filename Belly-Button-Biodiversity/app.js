@@ -15,7 +15,7 @@ function init(){
     });
     buildMetadata(940);
     buildCharts(940);
-}
+};
 
 function optionChanged(newID) {
     buildMetadata(newID);
@@ -24,23 +24,25 @@ function optionChanged(newID) {
 
 // Deliver demographic info
 function buildMetadata(ID) {
-    d3.json(url).then((data) => {
+    let panel = d3.select("#sample-metadata");
+    d3.json(url).then(function(data) {
 
         // Define the metadata
         let metadata = data.metadata;
 
         // Filter by the ID
-        let filteredMetadata = metadata.filter(metaObj => metaObj.id == ID)[0];
+        let filteredMetadata = metadata.filter(metaObj => metaObj.id == ID);
+        let result = filteredMetadata[0];
 
         // Create the panel
-        let demoPanel = d3.select("#sample-metadata");
-        demoPanel.append("h6").text("ID: " + filteredMetadata.id);
-        demoPanel.append("h6").text("ETHNICITY: " + filteredMetadata.ethnicity);
-        demoPanel.append("h6").text("GENDER: " + filteredMetadata.gender);
-        demoPanel.append("h6").text("AGE: " + filteredMetadata.age);
-        demoPanel.append("h6").text("LOCATION: " + filteredMetadata.location);
-        demoPanel.append("h6").text("BBTYPE: " + filteredMetadata.bbtype);
-        demoPanel.append("h6").text("WFREQ: " + filteredMetadata.wfreq);
+        panel.html("");
+        panel.append("h6").text("ID: " + result.id);
+        panel.append("h6").text("ETHNICITY: " + result.ethnicity);
+        panel.append("h6").text("GENDER: " + result.gender);
+        panel.append("h6").text("AGE: " + result.age);
+        panel.append("h6").text("LOCATION: " + result.location);
+        panel.append("h6").text("BBTYPE: " + result.bbtype);
+        panel.append("h6").text("WFREQ: " + result.wfreq);
 
         // Create the gauge chart
         // Define variable for washing frequency
