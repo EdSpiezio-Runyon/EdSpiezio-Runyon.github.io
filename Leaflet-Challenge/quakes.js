@@ -153,7 +153,7 @@ function createMap(quakes) {
     var labels = [];
     
     // Define minimum and maximum values.
-    var legendLimits = "<h1>Earthquakes in the Past Month</h1><br><h2 style='text-align: center'>Recorded Depth (km)</h2>" +
+    var legendLimits = "<h2 style='text-align: center'>Earthquakes in the Past Month</h2><h3 style='text-align: center'>Recorded Depth (km)</h3>" +
       "<div class=\"labels\">" +
       "<div class=\"min\">" + depth[0] + "</div>" +
       "<div class=\"max\">" + depth[depth.length - 1] + "</div>" +
