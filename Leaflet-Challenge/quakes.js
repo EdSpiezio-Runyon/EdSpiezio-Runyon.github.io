@@ -96,12 +96,12 @@ function createFeatures(quakeData) {
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng, {
         opacity: 1,
-        fillOpacity: 1,
+        fillOpacity: 0.5,
         fillColor: dotColor(feature.geometry.coordinates[2]),
         color: "#000000",
         radius: dotSize(feature.properties.mag),
         stroke: true,
-        weight: 0.5
+        weight: 0.3
       })
     }
   });
@@ -145,15 +145,15 @@ function createMap(quakes) {
   L.control.layers(baseMaps, overlayMap).addTo(loadMap);
 
   // Create map legend.
-  var mapLegend = L.control({ position: "bottomright" });
+  var legend = L.control({ position: "bottomright" });
   legend.onAdd = function() {
     var div = L.DomUtil.create("div", "info legend");
-      limits = [0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100];
-    var colors = ["#29451C","#314C20","#3A5223","#435827","#4D5E2A","#57652E","#616B31","#6C7135","#767739","#7C773D","#827741","#89764A","#907653","#96775C","#9D7865","#A47A6E","#AA7C77","#B18182","#B78A91","#BE939F","#C49DAD"];
+      limits = [0,10,20,30,40,50,60,70,80,90,100];
+    var colors = ["#357210","#538716","#769B1C","#9DAE23","#C0B82B","#D1AE34","#D89346","#DF7E58","#E56F6A","#EB7E95","#F092BD"]
     var labels = [];
     
     // Define minimum and maximum values.
-    var legendLimits = "<h1>Earthquake Depth (km)</br></h1>" +
+    var legendLimits = "<h1>Earthquakes in the Past Month<br>Recorded Depth (km)</h1>" +
       "<div class=\"labels\">" +
       "<div class=\"min\">" + limits[0] + "</div>" +
       "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
