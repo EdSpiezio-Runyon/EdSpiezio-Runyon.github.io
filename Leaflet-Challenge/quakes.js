@@ -148,20 +148,20 @@ function createMap(quakes) {
   var legend = L.control({ position: "bottomright" });
   legend.onAdd = function() {
     var div = L.DomUtil.create("div", "info legend");
-      limits = [0,10,20,30,40,50,60,70,80,90,100];
+      depth = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
     var colors = ["#357210","#538716","#769B1C","#9DAE23","#C0B82B","#D1AE34","#D89346","#DF7E58","#E56F6A","#EB7E95","#F092BD"]
     var labels = [];
     
     // Define minimum and maximum values.
-    var legendLimits = "<h1>Earthquakes in the Past Month<br>Recorded Depth (km)</h1>" +
+    var legendLimits = "<h1>Earthquakes in the Past Month</h1><br><h2 style='text-align: center'>Recorded Depth (km)</h2>" +
       "<div class=\"labels\">" +
-      "<div class=\"min\">" + limits[0] + "</div>" +
-      "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
+      "<div class=\"min\">" + depth[0] + "</div>" +
+      "<div class=\"max\">" + depth[depth.length - 1] + "</div>" +
       "</div>";
 
       div.innerHTML = legendLimits;
 
-      limits.forEach(function(limit, index) {
+      depth.forEach(function(depth, index) {
       labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
       });
 
