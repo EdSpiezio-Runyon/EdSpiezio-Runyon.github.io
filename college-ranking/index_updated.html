@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Top U.S. Colleges</title>
+
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="assets/styles.css" media="screen">
+
+  </head>
+
+  <body class="index-image">
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:royalblue">
+        <a class="navbar-brand" href="index.html">Top U.S. Colleges</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Plots
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="visualizations/studentpop.html">Student Population</a>
+                    <a class="dropdown-item" href="visualizations/historical.html">Historical Significance</a>
+                    <a class="dropdown-item" href="visualizations/topranked.html">Top 10 Ranked Schools</a>
+                    <a class="dropdown-item" href="visualizations/tuitionfees.html">Tuition and Fees</a>
+                    <!--a class="dropdown-item" href="visualizations/wind.html">Wind</a-->
+                </div>
+              <!--li class="nav-item">
+                  <a class="nav-link" href="comparison.html">Comparison</a>
+              </li-->
+              <li class="nav-item">
+                   <a class="nav-link" href="data.html">Data</a>
+              </li>
+          </ul>
+      </div>
+    </nav>
+    <!-- End of navbar -->
+
+    <!-- Start of container -->
+    <div class="container">
+      <div class="row">
+          <div class="col-md-10">
+              <br><div class="jumbotron" style="background-color:rgba(143, 188, 143, 0.681)">
+                   <h1 class="display-4">Top 10 Colleges </h1>
+                      <p class="lead">In this study we are looking at the top ranked U.S. colleges and looking at the different
+                        factors that affect every different student recruit.
+                      </p>
+                  <hr class="my-4">
+                      <p>This information was found using data about Top Colleges from two different Kaggle sources that provided a CSV files.
+                         A Flask API was created from the combined data and is utilized on this website.
+                        Leaflet and Charts.js were used to plot the data images seen on this website.</p>
+               </div>
+          <!-- Start of Visualizations imageNav Area -->
+        </div>
+        <div class="col-md-2">
+           <br><a href="visualizations/topranked.html">
+                <button class="btn btn-primary" style="background-color:royalblue;color:darkseagreen;">
+                    <img src="assets/images/Fig1.png" width="90%" />Top 10 Ranked Schools
+                </button></a>
+            <br><br><a href="visualizations/historical.html">
+                <button class="btn btn-primary" style="background-color:royalblue;color:darkseagreen;">
+                    <img src="assets/images/Fig2.png" width="90%" />Historical Significance
+                </button>
+            <br><br><a href="visualizations/studentpop.html">
+                <button class="btn btn-primary" style="background-color:royalblue;color:darkseagreen;">
+                    <img src="assets/images/Fig3.png" width="90%" />Student Population
+                </button>
+            <br><br><a href="visualizations/tuitionfees.html>
+                <button class="btn btn-primary" style="background-color:royalblue;color:darkseagreen;">
+                    <img src="assets/images/Fig4.png" width="90%" />Tuition and Fees
+                </button>
+        </div>
+          <!-- End of the Visualizations imageNav Area -->
+    <!-- End of container -->
+
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+  </body>
+
+</html>
