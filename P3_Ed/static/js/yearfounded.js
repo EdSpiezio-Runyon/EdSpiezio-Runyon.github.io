@@ -69,7 +69,7 @@ function dotColor(yearFounded) {
 
 
 // Store API endpoint as queryUrl.
-let queryUrl = "../../templates/appNotes.json";
+let queryUrl = "../templates/appNotes.json";
 let q2 = "http://127.0.0.1:5000/api/v1.0/data/";
 
 // function getFeature(data_info){
